@@ -1,29 +1,19 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<template lang="pug">
+  .app-main
+    router-view
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style lang="scss" src="#/styles/reset.scss"></style>
+<style lang="scss" src="#/styles/core.scss"></style>
+<style lang="scss" src="#/styles/plugins/indicator.scss"></style>
+<style lang="scss" src="#/styles/plugins/toast.scss"></style>
+<style lang="scss" src="#/styles/plugins/scroller.scss"></style>
+<style lang="scss" src="#/styles/plugins/picker.scss"></style>
+
+<script>
+// import 'swiper/dist/css/swiper.css'
+
+export default {
+  name: 'app'
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+</script>

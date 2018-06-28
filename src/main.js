@@ -1,13 +1,49 @@
-import Vue from 'vue';
-import App from './App.vue';
-import router from './router';
-import store from './store';
-import './registerServiceWorker';
+import './utils/raf'
+import './utils/focus'
+import Vue from 'vue'
+import router from './router'
+import { sync } from 'vuex-router-sync'
+// import swiper from 'vue-awesome-swiper'
+import device from './plugins/device'
+import indicator from './plugins/indicator'
+import toast from './plugins/toast'
+import requester from './plugins/requester'
+import circleProgress from './plugins/circleProgress'
+import counter from './plugins/counter'
+import App from './App.vue'
+import store from './vuex/store'
+import * as filters from './filters'
+import LocalLoader from '^/LocalLoader'
+import LazyImage from '^/LazyImage'
+import './registerServiceWorker'
 
-Vue.config.productionTip = false;
+sync(store, router)
 
-new Vue({
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
+
+const plugins = [
+  device,
+  toast,
+  indicator,
+  requester,
+  circleProgress,
+  VueAwesomeSwiper,
+  counter
+]
+
+plugins.forEach(plugin => {
+  Vue.use(plugin)
+})
+
+Vue.component(LocalLoader.name, LocalLoader)
+Vue.component(LazyImage.name, LazyImage)
+
+const app = new Vue({
   router,
   store,
-  render: h => h(App),
-}).$mount('#app');
+  ...App
+})
+
+app.$mount('#MOUNT_NODE')

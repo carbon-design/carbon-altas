@@ -1,5 +1,5 @@
 <template lang="pug">
-  article.page-home(ref="page")
+  article.page-home
     .chassis
       .card
         .card-content
@@ -63,6 +63,7 @@
             .dot
             .dot
             .dot
+    .full-mask(ref="page" @touchstart="clearFace")
 </template>
 
 <script>
@@ -163,11 +164,18 @@ export default {
   },
 
   methods: {
+    clearFace () {
+      this.$refs.page.style.display = 'none'
+      this.$refs.page = null
+    },
     goPage (path) {
       this.$router.push(`/main/${path}`)
     },
     async jump () {
       if (this._count > 4) {
+        return
+      }
+      if (!this.$refs.page) {
         return
       }
       this._count++

@@ -36,6 +36,6 @@ module.exports = {
         'target': 'http://amaze.qiniudn.com',
         'changeOrigin': true
       }
-    },
+    }
   }
 }

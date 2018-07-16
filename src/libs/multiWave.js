@@ -135,7 +135,16 @@ class multiWave {
     ctx.lineTo(d * 2 * waveCount + offsetX, h)
     ctx.lineTo(offsetX, h)
     ctx.closePath()
-    ctx.fillStyle = waveColor
+
+    if (Object.prototype.toString.call(waveColor) === '[object Array]') {
+      const linearGradient = ctx.createLinearGradient(0, 0, 0, this._height)
+      waveColor.forEach(item => {
+        linearGradient.addColorStop(item.position, item.color)
+      })
+      ctx.fillStyle = linearGradient
+    } else {
+      ctx.fillStyle = waveColor
+    }
     ctx.fill()
   }
 

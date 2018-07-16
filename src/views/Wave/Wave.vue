@@ -19,7 +19,13 @@ export default {
       waveWidth: '40%',
       offsetX: '0%',
       waveHeight: '10%',
-      waveColor: 'rgba(255, 0, 0, 0.33)',
+      waveColor: [{
+        color: 'rgba(255, 0, 0, 0.33)',
+        position: 0
+      }, {
+        color: 'rgba(255, 255, 255, 0)',
+        position: 1
+      }],
       startFromTop: '80%',
       endFromTop: '80%',
       moveYStep: '0.6%',
@@ -30,7 +36,13 @@ export default {
       waveWidth: '40%',
       offsetX: '30%',
       waveHeight: '10%',
-      waveColor: 'rgba(0, 0, 255, 0.33)',
+      waveColor: [{
+        color: 'rgba(0, 0, 255, 0.33)',
+        position: 0
+      }, {
+        color: 'rgba(255, 255, 255, 0)',
+        position: 1
+      }],
       startFromTop: '80%',
       endFromTop: '80%',
       moveYStep: '0.6%',
@@ -40,7 +52,13 @@ export default {
       waveWidth: '40%',
       offsetX: '80%',
       waveHeight: '10%',
-      waveColor: 'rgba(0, 255, 0, 0.33)',
+      waveColor: [{
+        color: 'rgba(0, 255, 0, 0.33)',
+        position: 0
+      }, {
+        color: 'rgba(255, 255, 255, 0)',
+        position: 1
+      }],
       startFromTop: '80%',
       endFromTop: '80%',
       moveYStep: '0.6%',

@@ -92,7 +92,7 @@ export default {
           transitionEnd () {
             _this.triggerChart(this)
           }
-        } 
+        }
       }
     }
   },

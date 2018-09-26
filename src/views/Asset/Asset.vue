@@ -57,11 +57,12 @@
 
 <script>
 import { getAssets } from '~/config/api'
-// import echarts from 'echarts/dist/echarts.simple'
+import echarts from 'echarts/dist/echarts.simple'
 
 export default {
   name: 'asset',
   data () {
+    const _this = this
     return {
       userName: '用户',
       currentCard: 0,
@@ -75,18 +76,23 @@ export default {
       swiperOption: {
         slidesPerView: 'auto',
         paginationClickable: true,
-        onInit: swiper => {
-          const { $refs, runChart, initChart, chartData: { circles, lines } } = this
-          const { deposit, bonds, fund, depositCircle, bondsCircle, fundCircle } = $refs
-          const width = swiper.size * 0.7
-          const height = swiper.height
-          this.triggerChart(swiper)
-          this.initCircle([depositCircle, bondsCircle, fundCircle], height * 0.46, circles)
-          runChart(initChart(width, height, deposit), lines[0])
-          runChart(initChart(width, height, bonds), lines[1])
-          runChart(initChart(width, height, fund), lines[2])
-        },
-        onTransitionEnd: this.triggerChart
+        on: {
+          init () {
+            const swiper = this
+            const { $refs, runChart, initChart, chartData: { circles, lines } } = _this
+            const { deposit, bonds, fund, depositCircle, bondsCircle, fundCircle } = $refs
+            const width = swiper.size * 0.7
+            const height = swiper.height
+            _this.triggerChart(swiper)
+            _this.initCircle([depositCircle, bondsCircle, fundCircle], height * 0.46, circles)
+            runChart(initChart(width, height, deposit), lines[0])
+            runChart(initChart(width, height, bonds), lines[1])
+            runChart(initChart(width, height, fund), lines[2])
+          },
+          transitionEnd () {
+            _this.triggerChart(this)
+          }
+        } 
       }
     }
   },
@@ -148,7 +154,7 @@ export default {
           top: top || '50%',
           bottom: 0
         },
-        xAxis: [{
+        xAxis: {
           axisLine: {
             onZero: false,
             show: false
@@ -163,15 +169,10 @@ export default {
             show: false
           },
           type: 'category',
-          scale: true,
           boundaryGap: false,
           data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-        }],
-        yAxis: [{
-          scale: true,
-          min (value) {
-            return value.min - 2
-          },
+        },
+        yAxis: {
           type: 'value',
           axisLine: {
             onZero: false,
@@ -186,7 +187,7 @@ export default {
           axisLabel: {
             show: false
           }
-        }],
+        },
         series: [{
           smooth: true,
           name: '贷款',
@@ -217,7 +218,7 @@ export default {
               }
             }
           },
-          data: data
+          data: data.map(e => e + 10)
         }]
       })
     }

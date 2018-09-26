@@ -1,6 +1,5 @@
 {
   "globals": {
-    "echarts": true,
-    "VueAwesomeSwiper": true
+    "echarts": true
   }
 }

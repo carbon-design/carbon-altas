@@ -15,6 +15,9 @@ import * as filters from './filters'
 import LocalLoader from '^/LocalLoader'
 import LazyImage from '^/LazyImage'
 import './registerServiceWorker'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
+import 'swiper/dist/css/swiper.css'
 
 sync(store, router)
 

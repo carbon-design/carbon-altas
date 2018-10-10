@@ -1335,9 +1335,9 @@
   version "0.0.30"
   resolved "http://registry.npm.taobao.org/@types/strip-json-comments/download/@types/strip-json-comments-0.0.30.tgz#9aa30c04db212a9a0649d6ae6fd50accc40748a1"
 
-"@vue/babel-preset-app@^3.0.4":
-  version "3.0.4"
-  resolved "http://registry.npm.taobao.org/@vue/babel-preset-app/download/@vue/babel-preset-app-3.0.4.tgz#5702e18b118b0a91a8aa988be5eefcb8245c8b87"
+"@vue/babel-preset-app@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@vue/babel-preset-app/-/babel-preset-app-3.0.5.tgz#7aa4a6a592ddf04a06a3cf2091252395acf4c033"
   dependencies:
     "@babel/plugin-proposal-class-properties" "7.0.0-beta.47"
     "@babel/plugin-proposal-decorators" "7.0.0-beta.47"
@@ -1350,49 +1350,49 @@
     babel-plugin-dynamic-import-node "^2.0.0"
     babel-plugin-transform-vue-jsx "^4.0.1"
 
-"@vue/cli-overlay@^3.0.4":
-  version "3.0.4"
-  resolved "http://registry.npm.taobao.org/@vue/cli-overlay/download/@vue/cli-overlay-3.0.4.tgz#6d5640021906d35e5572c186c3f35b4e7a93c247"
+"@vue/cli-overlay@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@vue/cli-overlay/-/cli-overlay-3.0.5.tgz#403bd1b4f58076ca8f85a65cf30e06cda3ce6b39"
 
-"@vue/cli-plugin-babel@^3.0.4":
-  version "3.0.4"
-  resolved "http://registry.npm.taobao.org/@vue/cli-plugin-babel/download/@vue/cli-plugin-babel-3.0.4.tgz#f2e4a12f498e285fdc605ad29df4b9b0d4a0eb10"
+"@vue/cli-plugin-babel@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@vue/cli-plugin-babel/-/cli-plugin-babel-3.0.5.tgz#6396e6f52771d8a9cfbfe0d9369699a390528c4a"
   dependencies:
     "@babel/core" "7.0.0-beta.47"
-    "@vue/babel-preset-app" "^3.0.4"
+    "@vue/babel-preset-app" "^3.0.5"
     babel-loader "^8.0.0-0"
 
-"@vue/cli-plugin-e2e-cypress@^3.0.4":
-  version "3.0.4"
-  resolved "http://registry.npm.taobao.org/@vue/cli-plugin-e2e-cypress/download/@vue/cli-plugin-e2e-cypress-3.0.4.tgz#63660a083dfea4da8281fa1d60d5843ee0dc2add"
+"@vue/cli-plugin-e2e-cypress@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@vue/cli-plugin-e2e-cypress/-/cli-plugin-e2e-cypress-3.0.5.tgz#b26d875f6f5e79170059272561b6490488d3bd9f"
   dependencies:
     "@cypress/webpack-preprocessor" "^3.0.0"
-    "@vue/cli-shared-utils" "^3.0.4"
+    "@vue/cli-shared-utils" "^3.0.5"
     cypress "^3.0.2"
     eslint-plugin-cypress "^2.0.1"
 
-"@vue/cli-plugin-eslint@^3.0.4":
-  version "3.0.4"
-  resolved "http://registry.npm.taobao.org/@vue/cli-plugin-eslint/download/@vue/cli-plugin-eslint-3.0.4.tgz#0c62607c44a3b63fc730fdc0dd0ad5165bc559f6"
+"@vue/cli-plugin-eslint@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@vue/cli-plugin-eslint/-/cli-plugin-eslint-3.0.5.tgz#d673775eaf612658f8c2fbde35610dd050c9c11a"
   dependencies:
-    "@vue/cli-shared-utils" "^3.0.4"
+    "@vue/cli-shared-utils" "^3.0.5"
     babel-eslint "^8.2.5"
     eslint "^4.19.1"
     eslint-loader "^2.0.0"
     eslint-plugin-vue "^4.5.0"
 
-"@vue/cli-plugin-pwa@^3.0.4":
-  version "3.0.4"
-  resolved "http://registry.npm.taobao.org/@vue/cli-plugin-pwa/download/@vue/cli-plugin-pwa-3.0.4.tgz#2a3cbf5de3be300bbe43d0e2606877f24b298ad1"
+"@vue/cli-plugin-pwa@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@vue/cli-plugin-pwa/-/cli-plugin-pwa-3.0.5.tgz#0fca5be1af20044696083cdfa3f8e8d8cdeee025"
   dependencies:
-    "@vue/cli-shared-utils" "^3.0.4"
+    "@vue/cli-shared-utils" "^3.0.5"
     workbox-webpack-plugin "^3.3.1"
 
-"@vue/cli-plugin-unit-jest@^3.0.4":
-  version "3.0.4"
-  resolved "http://registry.npm.taobao.org/@vue/cli-plugin-unit-jest/download/@vue/cli-plugin-unit-jest-3.0.4.tgz#28196d85f6aab1b4045fce40cf194b9b6001009c"
+"@vue/cli-plugin-unit-jest@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@vue/cli-plugin-unit-jest/-/cli-plugin-unit-jest-3.0.5.tgz#31a36ae7b14751d3198a08991640038c432ea75e"
   dependencies:
-    "@vue/cli-shared-utils" "^3.0.4"
+    "@vue/cli-shared-utils" "^3.0.5"
     babel-jest "^23.4.0"
     babel-plugin-transform-es2015-modules-commonjs "^6.26.2"
     jest "^23.4.0"
@@ -1400,13 +1400,13 @@
     jest-transform-stub "^1.0.0"
     vue-jest "^2.6.0"
 
-"@vue/cli-service@^3.0.4":
-  version "3.0.4"
-  resolved "http://registry.npm.taobao.org/@vue/cli-service/download/@vue/cli-service-3.0.4.tgz#0084569470a742a3c9adf32e8815c4760eaafd96"
+"@vue/cli-service@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@vue/cli-service/-/cli-service-3.0.5.tgz#6e9fec10f4eeedd0aa8fd76206fda3089142184c"
   dependencies:
     "@intervolga/optimize-cssnano-plugin" "^1.0.5"
-    "@vue/cli-overlay" "^3.0.4"
-    "@vue/cli-shared-utils" "^3.0.4"
+    "@vue/cli-overlay" "^3.0.5"
+    "@vue/cli-shared-utils" "^3.0.5"
     "@vue/preload-webpack-plugin" "^1.1.0"
     "@vue/web-component-wrapper" "^1.2.0"
     acorn "^5.7.1"
@@ -1454,9 +1454,9 @@
     webpack-merge "^4.1.3"
     yorkie "^2.0.0"
 
-"@vue/cli-shared-utils@^3.0.4":
-  version "3.0.4"
-  resolved "http://registry.npm.taobao.org/@vue/cli-shared-utils/download/@vue/cli-shared-utils-3.0.4.tgz#055a6eec7dd5d0392bec1547a0199ccc008ccc06"
+"@vue/cli-shared-utils@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@vue/cli-shared-utils/-/cli-shared-utils-3.0.5.tgz#6fd4772c0eca9f529c4b941b3b721a3aae1d7b8e"
   dependencies:
     chalk "^2.4.1"
     execa "^0.10.0"
@@ -1485,9 +1485,9 @@
     source-map "^0.5.6"
     vue-template-es2015-compiler "^1.6.0"
 
-"@vue/eslint-config-standard@^3.0.4":
-  version "3.0.4"
-  resolved "http://registry.npm.taobao.org/@vue/eslint-config-standard/download/@vue/eslint-config-standard-3.0.4.tgz#e7bb75f880d9996bbc5185f6733df95fb44282d2"
+"@vue/eslint-config-standard@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@vue/eslint-config-standard/-/eslint-config-standard-3.0.5.tgz#7d6ae809eaec90993c6033d9543f48f687b9ebf1"
   dependencies:
     eslint-config-standard "^12.0.0-alpha.0"
     eslint-plugin-import "^2.11.0"
@@ -2199,9 +2199,18 @@ babel-jest@^23.0.1, babel-jest@^23.4.0, babel-jest@^23.6.0:
     babel-plugin-istanbul "^4.1.6"
     babel-preset-jest "^23.2.0"
 
-babel-loader@8.0.2, babel-loader@^8.0.0-0, babel-loader@^8.0.2:
+babel-loader@8.0.2, babel-loader@^8.0.0-0:
   version "8.0.2"
   resolved "http://registry.npm.taobao.org/babel-loader/download/babel-loader-8.0.2.tgz#2079b8ec1628284a929241da3d90f5b3de2a5ae5"
+  dependencies:
+    find-cache-dir "^1.0.0"
+    loader-utils "^1.0.2"
+    mkdirp "^0.5.1"
+    util.promisify "^1.0.0"
+
+babel-loader@^8.0.4:
+  version "8.0.4"
+  resolved "https://registry.npmjs.org/babel-loader/-/babel-loader-8.0.4.tgz#7bbf20cbe4560629e2e41534147692d3fecbdce6"
   dependencies:
     find-cache-dir "^1.0.0"
     loader-utils "^1.0.2"

@@ -20,22 +20,22 @@ module.exports = {
         loader: 'pug-plain-loader'
       }]
     }
-  },
-  devServer: {
-    proxy: {
-      '/mock': {
-        'target': 'http://amaze.qiniudn.com',
-        'changeOrigin': true,
-        onProxyReq: proxyReq => {
-          console.log(`[${chalk.gray('proxy')}]: ` +
-            `${chalk.cyanBright(proxyReq.method)} ` +
-            `${chalk.yellowBright(proxyReq.path)}`)
-        }
-      },
-      '/mirror': {
-        'target': 'http://amaze.qiniudn.com',
-        'changeOrigin': true
-      }
-    }
   }
+  // devServer: {
+  //   proxy: {
+  //     '/mock': {
+  //       'target': 'http://amaze.qiniudn.com',
+  //       'changeOrigin': true,
+  //       onProxyReq: proxyReq => {
+  //         console.log(`[${chalk.gray('proxy')}]: ` +
+  //           `${chalk.cyanBright(proxyReq.method)} ` +
+  //           `${chalk.yellowBright(proxyReq.path)}`)
+  //       }
+  //     },
+  //     '/mirror': {
+  //       'target': 'http://amaze.qiniudn.com',
+  //       'changeOrigin': true
+  //     }
+  //   }
+  // }
 }

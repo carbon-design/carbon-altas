@@ -5,12 +5,12 @@ import { Axios } from '~/plugins/requester'
 
 export const API = {
   // queryCode: rq('queryAreaCode'),
-  login: '/mock/login.json',
-  channel: '/mock/channel.json',
-  assets: '/mock/assets.json',
-  home: '/mock/home.json',
-  address: '/mock/address.json',
-  images: '/mock/images.json'
+  login: '/starry/mock/login.json',
+  channel: '/starry/mock/channel.json',
+  assets: '/starry/mock/assets.json',
+  home: '/starry/mock/home.json',
+  address: '/starry/mock/address.json',
+  images: '/starry/mock/images.json'
 }
 
 export const getCode = () => Axios({

@@ -1,20 +1,36 @@
 language: node_js
+
 node_js:
   - '8'
+
 branchs:
   only:
   - master
+
 env:
   - CXX=g++-4.8
+
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
+
 cache:
   directories:
     - 'node_modules'
+
 script:
   - npm run test:unit
   - npm run build
+
+after_script:
+  - cd ./dist
+  - git config --global user.name "${GT_USERNAME}"
+  - git config --global user.email "${GT_EMAIL}"
+  - git init
+  - git add .
+  - git commit -m "update static files"
+  - git remote add origin https://${GT_USERNAME}:${GT_PASSWORD}@gitee.com/${GT_USERNAME}/carbon.git
+  - git push --progress -f origin master

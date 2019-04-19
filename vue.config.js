@@ -23,7 +23,7 @@ module.exports = {
   devServer: {
     proxy: {
       "/media": {
-        target: "https://owlaford.gitee.io/media/",
+        target: "https://owlaford.gitee.io/",
         changeOrigin: true,
         onProxyReq: proxyReq => {
           console.log(

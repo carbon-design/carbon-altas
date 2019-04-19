@@ -1,62 +1,62 @@
 {
   "imgData": [{
-    "origin": "/mirror/origin1.jpg",
-    "thumb": "/mirror/thumb1.jpg",
+    "origin": "/media/mirror/origin1.jpg",
+    "thumb": "/media/mirror/thumb1.jpg",
+    "width": "3332",
+    "height": "1874"
+  }, {
+    "origin": "/media/mirror/origin11.jpg",
+    "thumb": "/media/mirror/thumb11.jpg",
+    "width": "1920",
+    "height": "1200"
+  }, {
+    "origin": "/media/mirror/origin2.jpg",
+    "thumb": "/media/mirror/thumb2.jpg",
+    "width": "2048",
+    "height": "1280"
+  }, {
+    "origin": "/media/mirror/origin3.jpg",
+    "thumb": "/media/mirror/thumb3.jpg",
+    "width": "2160",
+    "height": "2280"
+  }, {
+    "origin": "/media/mirror/origin12.jpg",
+    "thumb": "/media/mirror/thumb12.jpg",
+    "width": "3840",
+    "height": "2160"
+  }, {
+    "origin": "/media/mirror/origin4.jpg",
+    "thumb": "/media/mirror/thumb4.jpg",
+    "width": "6016",
+    "height": "4016"
+  }, {
+    "origin": "/media/mirror/origin5.jpg",
+    "thumb": "/media/mirror/thumb5.jpg",
+    "width": "3840",
+    "height": "2160"
+  }, {
+    "origin": "/media/mirror/origin6.jpg",
+    "thumb": "/media/mirror/thumb6.jpg",
+    "width": "5362",
+    "height": "3575"
+  }, {
+    "origin": "/media/mirror/origin7.jpg",
+    "thumb": "/media/mirror/thumb7.jpg",
     "width": "1920",
     "height": "1080"
   }, {
-    "origin": "/mirror/origin11.jpg",
-    "thumb": "/mirror/thumb11.jpg",
-    "width": "1665",
-    "height": "3000"
+    "origin": "/media/mirror/origin8.jpg",
+    "thumb": "/media/mirror/thumb8.jpg",
+    "width": "5200",
+    "height": "2925"
   }, {
-    "origin": "/mirror/origin2.jpg",
-    "thumb": "/mirror/thumb2.jpg",
+    "origin": "/media/mirror/origin9.jpg",
+    "thumb": "/media/mirror/thumb9.jpg",
     "width": "1920",
     "height": "1080"
   }, {
-    "origin": "/mirror/origin3.jpg",
-    "thumb": "/mirror/thumb3.jpg",
-    "width": "1920",
-    "height": "1080"
-  }, {
-    "origin": "/mirror/origin12.jpg",
-    "thumb": "/mirror/thumb12.jpg",
-    "width": "1024",
-    "height": "768"
-  }, {
-    "origin": "/mirror/origin4.jpg",
-    "thumb": "/mirror/thumb4.jpg",
-    "width": "1920",
-    "height": "1080"
-  }, {
-    "origin": "/mirror/origin5.jpg",
-    "thumb": "/mirror/thumb5.jpg",
-    "width": "1920",
-    "height": "1080"
-  }, {
-    "origin": "/mirror/origin6.jpg",
-    "thumb": "/mirror/thumb6.jpg",
-    "width": "1920",
-    "height": "1080"
-  }, {
-    "origin": "/mirror/origin7.jpg",
-    "thumb": "/mirror/thumb7.jpg",
-    "width": "1920",
-    "height": "1080"
-  }, {
-    "origin": "/mirror/origin8.jpg",
-    "thumb": "/mirror/thumb8.jpg",
-    "width": "1920",
-    "height": "1080"
-  }, {
-    "origin": "/mirror/origin9.jpg",
-    "thumb": "/mirror/thumb9.jpg",
-    "width": "1920",
-    "height": "1080"
-  }, {
-    "origin": "/mirror/origin10.jpg",
-    "thumb": "/mirror/thumb10.jpg",
+    "origin": "/media/mirror/origin10.jpg",
+    "thumb": "/media/mirror/thumb10.jpg",
     "width": "1920",
     "height": "1080"
   }]

@@ -23,77 +23,77 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters } from "vuex";
 
 export default {
-  name: 'channel',
-  data () {
+  name: "channel",
+  data() {
     return {
       editState: false,
       tempData: []
-    }
+    };
   },
-  beforeCreate () {
-    this.bodyClass = document.documentElement.classList
-    this.bodyClass.add('bg-light-white')
+  beforeCreate() {
+    this.bodyClass = document.documentElement.classList;
+    this.bodyClass.add("bg-light-white");
   },
-  beforeMount () {
-    this.getList()
+  beforeMount() {
+    this.getList();
   },
   computed: {
     ...mapGetters({
-      dataList: 'lessonList'
+      dataList: "lessonList"
     }),
-    emptyState () {
-      let count = 0
+    emptyState() {
+      let count = 0;
       this.dataList.forEach(el => {
         el.lesson.forEach(sub => {
-          if (sub.join === '1') {
-            count++
+          if (sub.join === "1") {
+            count++;
           }
-        })
-      })
-      return count === 0
+        });
+      });
+      return count === 0;
     }
   },
   watch: {
-    dataList (val, oldVal) {
-      this.tempData = this.clone(val)
+    dataList(val) {
+      this.tempData = this.clone(val);
     }
   },
-  beforeDestroy () {
-    this.bodyClass.remove('bg-light-white')
+  beforeDestroy() {
+    this.bodyClass.remove("bg-light-white");
   },
   methods: {
     ...mapActions({
-      setList: 'setLessonList',
-      getList: 'getLessonList'
+      setList: "setLessonList",
+      getList: "getLessonList"
     }),
-    clone (obj) {
-      return JSON.parse(JSON.stringify(obj))
+    clone(obj) {
+      return JSON.parse(JSON.stringify(obj));
     },
-    doModify () {
-      this.editState = true
+    doModify() {
+      this.editState = true;
     },
-    cancelModify () {
-      this.tempData = this.clone(this.dataList)
-      this.editState = false
+    cancelModify() {
+      this.tempData = this.clone(this.dataList);
+      this.editState = false;
     },
-    saveModify () {
-      this.setList(this.tempData)
-      this.editState = false
+    saveModify() {
+      this.setList(this.tempData);
+      this.editState = false;
     },
-    checkGroup (index) {
-      let tar = this.tempData[index].lesson
-      let isAllSelected = tar.every(e => e.join === '1')
+    checkGroup(index) {
+      let tar = this.tempData[index].lesson;
+      let isAllSelected = tar.every(e => e.join === "1");
       tar.forEach(e => {
-        e.join = isAllSelected ? '0' : '1'
-      })
+        e.join = isAllSelected ? "0" : "1";
+      });
     },
-    checkItem (index, subIndex) {
-      let tar = this.tempData[index].lesson[subIndex]
-      tar.join === '0' ? tar.join = '1' : tar.join = '0'
+    checkItem(index, subIndex) {
+      let tar = this.tempData[index].lesson[subIndex];
+      tar.join === "0" ? (tar.join = "1") : (tar.join = "0");
     }
   }
-}
+};
 </script>

@@ -16,11 +16,11 @@
 </template>
 
 <script>
-import Gyroscope from '~/libs/gyroscope'
+import Gyroscope from "~/libs/gyroscope";
 
 export default {
-  name: 'gyro',
-  data () {
+  name: "gyro",
+  data() {
     return {
       poz: {
         x: 0,
@@ -28,24 +28,28 @@ export default {
         z: 0,
         rotate: 0
       }
-    }
+    };
   },
-  mounted () {
-    const vm = this
+  mounted() {
+    const vm = this;
     vm.gyro = new Gyroscope(data => {
-      vm.poz = data
-      vm.deviceController(data)
-    })
-    vm.gyro.bindEvent()
+      vm.poz = data;
+      vm.deviceController(data);
+    });
+    vm.gyro.bindEvent();
   },
-  beforeDestroy () {
-    this.gyro.destroy()
+  beforeDestroy() {
+    this.gyro.destroy();
   },
   methods: {
-    deviceController (data) {
-      let el = this.$refs.box
-      el.style.webkitTransform = el.style.transform = `rotate3d(${-parseFloat(data.x)}, ${+parseFloat(data.y)}, ${-parseFloat(data.z)}, ${-parseFloat(data.rotate)}deg)`
+    deviceController(data) {
+      let el = this.$refs.box;
+      el.style.webkitTransform = el.style.transform = `rotate3d(${-parseFloat(
+        data.x
+      )}, ${+parseFloat(data.y)}, ${-parseFloat(data.z)}, ${-parseFloat(
+        data.rotate
+      )}deg)`;
     }
   }
-}
+};
 </script>

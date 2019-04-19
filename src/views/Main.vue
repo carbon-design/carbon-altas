@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import AppFooter from '^/layouts/Footer'
+import AppFooter from "~/components/layouts/Footer";
 
 export default {
-  name: 'app-main',
+  name: "app-main",
   components: {
     AppFooter
   }
-}
+};
 </script>

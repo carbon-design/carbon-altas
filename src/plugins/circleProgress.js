@@ -1,9 +1,11 @@
-import CircleProgress from '~/libs/circleProgress'
+import CircleProgress from "~/libs/circleProgress";
 
-const circleProgress = opts => new CircleProgress(opts)
+const circleProgress = opts => new CircleProgress(opts);
 
 export default {
-  install (Vue, options) {
-    Object.defineProperty(Vue.prototype, '$circleProgress', { value: circleProgress })
+  install(Vue) {
+    Object.defineProperty(Vue.prototype, "$circleProgress", {
+      value: circleProgress
+    });
   }
-}
+};

@@ -2,18 +2,18 @@
   async-module
 </template>
 
-<style lang="scss" src="#/styles/pages/center.scss"></style>
+<style lang="scss" src="~/assets/styles/pages/center.scss"></style>
 
 <script>
-import config from '~/config/asyncLoad'
+import config from "~/config/asyncLoad";
 
 export default {
-  name: 'async-center',
+  name: "async-center",
   components: {
     AsyncModule: () => ({
-      component: import('./Center' /* webpackChunkName: 'center' */),
+      component: import("./Center" /* webpackChunkName: 'center' */),
       ...config
     })
   }
-}
+};
 </script>

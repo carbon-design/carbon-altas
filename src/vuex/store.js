@@ -1,29 +1,29 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import createLogger from 'vuex/dist/logger'
-import createPersistedState from 'vuex-persistedstate'
-import { state, mutations } from './mutations'
-import * as actions from './actions'
-import getters from './getters'
-import channel from './modules/channel'
+import Vue from "vue";
+import Vuex from "vuex";
+import createLogger from "vuex/dist/logger";
+import createPersistedState from "vuex-persistedstate";
+import { state, mutations } from "./mutations";
+import * as actions from "./actions";
+import getters from "./getters";
+import channel from "./modules/channel";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
-const debug = process.env.NODE_ENV !== 'production'
+const debug = process.env.NODE_ENV !== "production";
 
-let plugins = [createPersistedState()]
+let plugins = [createPersistedState()];
 
 if (debug && !window.__VUE_DEVTOOLS_GLOBAL_HOOK__) {
   const logger = createLogger({
     collapsed: false,
-    transformer (state) {
-      return state
+    transformer(state) {
+      return state;
     },
-    mutationTransformer (mutation) {
-      return mutation
+    mutationTransformer(mutation) {
+      return mutation;
     }
-  })
-  plugins = [logger]
+  });
+  plugins = [logger];
 }
 
 export default new Vuex.Store({
@@ -36,4 +36,4 @@ export default new Vuex.Store({
     channel
   },
   strict: debug
-})
+});

@@ -1,9 +1,9 @@
-import Indicator from '~/libs/indicator'
+import Indicator from "~/libs/indicator";
 
-export const indicator = new Indicator()
+export const indicator = new Indicator();
 
 export default {
-  install (Vue, options) {
-    Object.defineProperty(Vue.prototype, '$indicator', { value: indicator })
+  install(Vue) {
+    Object.defineProperty(Vue.prototype, "$indicator", { value: indicator });
   }
-}
+};

@@ -3,33 +3,33 @@
 </template>
 
 <script>
-import { getCookie } from '~/utils/cookie'
+import { getCookie } from "~/utils/cookie";
 
 export default {
-  name: 'redirect',
-  data () {
+  name: "redirect",
+  data() {
     return {
-      message: ''
-    }
+      message: ""
+    };
   },
-  beforeMount () {
-    const { $router, $route } = this
-    const userInfo = getCookie('userinfo')
+  beforeMount() {
+    const { $router, $route } = this;
+    const userInfo = getCookie("userinfo");
     if (!userInfo) {
-      this.message = '未登录或登录失效，请先登录！'
+      this.message = "未登录或登录失效，请先登录！";
       this.backTimer = setTimeout(() => {
-        $router.replace('/login')
-      }, 3000)
+        $router.replace("/login");
+      }, 3000);
     } else {
-      if ('path' in $route.query) {
-        $router.replace($route.query.path)
+      if ("path" in $route.query) {
+        $router.replace($route.query.path);
       } else {
-        $router.replace('/main/home')
+        $router.replace("/main/home");
       }
     }
   },
-  beforeDestroy () {
-    clearTimeout(this.backTimer)
+  beforeDestroy() {
+    clearTimeout(this.backTimer);
   }
-}
+};
 </script>

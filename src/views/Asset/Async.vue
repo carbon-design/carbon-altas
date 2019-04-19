@@ -2,18 +2,18 @@
   async-module
 </template>
 
-<style lang="scss" src="#/styles/pages/asset.scss"></style>
+<style lang="scss" src="~/assets/styles/pages/asset.scss"></style>
 
 <script>
-import config from '~/config/asyncLoad'
+import config from "~/config/asyncLoad";
 
 export default {
-  name: 'async-asset',
+  name: "async-asset",
   components: {
     AsyncModule: () => ({
-      component: import('./Asset' /* webpackChunkName: 'asset' */),
+      component: import("./Asset" /* webpackChunkName: 'asset' */),
       ...config
     })
   }
-}
+};
 </script>

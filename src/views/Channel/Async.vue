@@ -2,18 +2,18 @@
   async-module
 </template>
 
-<style lang="scss" src="#/styles/pages/channel.scss"></style>
+<style lang="scss" src="~/assets/styles/pages/channel.scss"></style>
 
 <script>
-import config from '~/config/asyncLoad'
+import config from "~/config/asyncLoad";
 
 export default {
-  name: 'async-channel',
+  name: "async-channel",
   components: {
     AsyncModule: () => ({
-      component: import('./Channel' /* webpackChunkName: 'channel' */),
+      component: import("./Channel" /* webpackChunkName: 'channel' */),
       ...config
     })
   }
-}
+};
 </script>

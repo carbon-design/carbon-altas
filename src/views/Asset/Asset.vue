@@ -4,7 +4,7 @@
       .user-avatar
         .name {{ userName }}
         .app-avatar
-          img(src="~/#/images/avatar.jpg" alt="avatar")
+          img(src="~/~/assets/images/avatar.jpg" alt="avatar")
       .wait-swiper-wrapper
         local-loader(:isFixed="true" v-if="waitData")
         swiper(:options="swiperOption" v-if="!waitData")
@@ -56,15 +56,15 @@
 </template>
 
 <script>
-import { getAssets } from '~/config/api'
+import { getAssets } from "~/config/api";
 // import echarts from 'echarts/dist/echarts.simple'
 
 export default {
-  name: 'asset',
-  data () {
-    const _this = this
+  name: "asset",
+  data() {
+    const _this = this;
     return {
-      userName: '用户',
+      userName: "用户",
       currentCard: 0,
       waitData: true,
       chartData: {
@@ -74,84 +74,108 @@ export default {
         fundList: []
       },
       swiperOption: {
-        slidesPerView: 'auto',
+        slidesPerView: "auto",
         paginationClickable: true,
         on: {
-          init () {
-            const swiper = this
-            const { $refs, runChart, initChart, chartData: { circles, lines } } = _this
-            const { deposit, bonds, fund, depositCircle, bondsCircle, fundCircle } = $refs
-            const width = swiper.size * 0.7
-            const height = swiper.height
-            _this.triggerChart(swiper)
-            _this.initCircle([depositCircle, bondsCircle, fundCircle], height * 0.46, circles)
-            runChart(initChart(width, height, deposit), lines[0])
-            runChart(initChart(width, height, bonds), lines[1])
-            runChart(initChart(width, height, fund), lines[2])
+          init() {
+            const swiper = this;
+            const {
+              $refs,
+              runChart,
+              initChart,
+              chartData: { circles, lines }
+            } = _this;
+            const {
+              deposit,
+              bonds,
+              fund,
+              depositCircle,
+              bondsCircle,
+              fundCircle
+            } = $refs;
+            const width = swiper.size * 0.7;
+            const height = swiper.height;
+            _this.triggerChart(swiper);
+            _this.initCircle(
+              [depositCircle, bondsCircle, fundCircle],
+              height * 0.46,
+              circles
+            );
+            runChart(initChart(width, height, deposit), lines[0]);
+            runChart(initChart(width, height, bonds), lines[1]);
+            runChart(initChart(width, height, fund), lines[2]);
           },
-          transitionEnd () {
-            _this.triggerChart(this)
+          transitionEnd() {
+            _this.triggerChart(this);
           }
         }
       }
-    }
+    };
   },
-  async mounted () {
-    const { $refs: { viewChart }, initChart, runChart } = this
-    const resAssets = await getAssets()
-    this.chartData = resAssets.data
-    this.waitData = false
-    runChart(initChart(viewChart.offsetWidth, viewChart.offsetHeight, viewChart), resAssets.data.fund, '20%')
+  async mounted() {
+    const {
+      $refs: { viewChart },
+      initChart,
+      runChart
+    } = this;
+    const resAssets = await getAssets();
+    this.chartData = resAssets.data;
+    this.waitData = false;
+    runChart(
+      initChart(viewChart.offsetWidth, viewChart.offsetHeight, viewChart),
+      resAssets.data.fund,
+      "20%"
+    );
   },
   methods: {
-    triggerChart (swiper) {
-      const size = swiper.slides.length
-      const progress = swiper.progress
-      const index = ~~(progress * (size - 1))
-      swiper.slides[index].classList.add('card-active')
-      this.activeCard(swiper.slides, index)
+    triggerChart(swiper) {
+      const size = swiper.slides.length;
+      const progress = swiper.progress;
+      const index = ~~(progress * (size - 1));
+      swiper.slides[index].classList.add("card-active");
+      this.activeCard(swiper.slides, index);
     },
-    activeCard (cards, index) {
-      cards[this.currentCard].classList.remove('card-active')
-      cards[index].classList.add('card-active')
-      this.currentCard = index
+    activeCard(cards, index) {
+      cards[this.currentCard].classList.remove("card-active");
+      cards[index].classList.add("card-active");
+      this.currentCard = index;
     },
-    initChart (width, height, el) {
-      el.style.height = `${height}px`
-      el.style.width = `${width}px`
-      return echarts.init(el)
+    initChart(width, height, el) {
+      el.style.height = `${height}px`;
+      el.style.width = `${width}px`;
+      return echarts.init(el);
     },
-    initCircle (els, size, datas) {
+    initCircle(els, size, datas) {
       Array.prototype.forEach.call(els, (el, i) => {
-        const data = datas[i] / 100
-        el.style.height = el.style.lineHeight = el.style.width = `${size}px`
+        const data = datas[i] / 100;
+        el.style.height = el.style.lineHeight = el.style.width = `${size}px`;
         this.$circleProgress({
           el: el,
           value: data,
           size: size,
           thickness: size * 0.1,
-          lineCap: 'round',
-          fill: '#fff',
+          lineCap: "round",
+          fill: "#fff",
           animation: {
             duration: 600 * (i + 1),
-            type: 'linear'
+            type: "linear"
           },
-          emptyFill: 'rgba(255, 255, 255, .3)',
-          callback (num) {
-            el.setAttribute('data-num', `${~~(num * 100)}%`)
+          emptyFill: "rgba(255, 255, 255, .3)",
+          callback(num) {
+            el.setAttribute("data-num", `${~~(num * 100)}%`);
           }
-        }).init()
-      })
+        }).init();
+      });
     },
-    runChart (tar, data, top) {
+    runChart(tar, data, top) {
       tar.setOption({
         grid: {
           show: true,
-          backgroundColor: 'rgba(255, 255, 255, 0)',
+          backgroundColor: "rgba(255, 255, 255, 0)",
           borderWidth: 0,
           left: 0,
           right: 0,
-          top: top || '50%',
+          top: top || "50%",
           bottom: 0
         },
         xAxis: {
@@ -168,12 +192,12 @@ export default {
           axisLabel: {
             show: false
           },
-          type: 'category',
+          type: "category",
           boundaryGap: false,
-          data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+          data: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
         },
         yAxis: {
-          type: 'value',
+          type: "value",
           axisLine: {
             onZero: false,
             show: false
@@ -188,40 +212,45 @@ export default {
             show: false
           }
         },
-        series: [{
-          smooth: true,
-          name: '贷款',
-          type: 'line',
-          showSymbol: false,
-          lineStyle: {
-            normal: {
-              width: 2 * window.dpr,
-              color: 'rgba(255, 255, 255, .7)'
-            }
-          },
-          areaStyle: {
-            normal: {
-              color: {
-                type: 'linear',
-                x: 0,
-                y: 0,
-                x2: 0,
-                y2: 1,
-                colorStops: [{
-                  offset: 0,
-                  color: 'rgba(255, 255, 255, 0.7)'
-                }, {
-                  offset: 1,
-                  color: 'rgba(255, 255, 255, 0.2)'
-                }],
-                globalCoord: false
+        series: [
+          {
+            smooth: true,
+            name: "贷款",
+            type: "line",
+            showSymbol: false,
+            lineStyle: {
+              normal: {
+                width: 2 * window.dpr,
+                color: "rgba(255, 255, 255, .7)"
               }
-            }
-          },
-          data: data.map(e => e + 10)
-        }]
-      })
+            },
+            areaStyle: {
+              normal: {
+                color: {
+                  type: "linear",
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "rgba(255, 255, 255, 0.7)"
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(255, 255, 255, 0.2)"
+                    }
+                  ],
+                  globalCoord: false
+                }
+              }
+            },
+            data: data.map(e => e + 10)
+          }
+        ]
+      });
     }
   }
-}
+};
 </script>

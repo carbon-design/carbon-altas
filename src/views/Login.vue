@@ -1,7 +1,7 @@
 <template lang="pug">
   article.app-login(ref="loginPage")
     .app-avatar
-      img(src="~/#/images/avatar.jpg" alt="avatar")
+      img(src="~/~/assets/images/avatar.jpg" alt="avatar")
     .form
       .fm-item
         .label 用户账号
@@ -17,68 +17,68 @@
     .alpaca(:class="{ showAll: idFocus, showLittle: pswdFocus }")
 </template>
 
-<style lang="scss" src="#/styles/pages/login.scss"></style>
+<style lang="scss" src="~/assets/styles/pages/login.scss"></style>
 
 <script>
-import { getLogin } from '~/config/api'
-import { setCookie } from '~/utils/cookie'
-import { mapActions } from 'vuex'
+import { getLogin } from "~/config/api";
+import { setCookie } from "~/utils/cookie";
+import { mapActions } from "vuex";
 
 export default {
-  name: 'login',
-  data () {
+  name: "login",
+  data() {
     return {
-      userName: '',
-      password: '',
+      userName: "",
+      password: "",
       idFocus: false,
       pswdFocus: false
-    }
+    };
   },
-  mounted () {
-    const { loginPage } = this.$refs
-    const { clientHeight } = document.documentElement
+  mounted() {
+    const { loginPage } = this.$refs;
+    const { clientHeight } = document.documentElement;
     loginPage.style.cssText = `
       min-height: ${clientHeight}px;
-      padding: ${clientHeight * 0.06}px 0 ${clientHeight * 0.42}px 0;`
+      padding: ${clientHeight * 0.06}px 0 ${clientHeight * 0.42}px 0;`;
   },
   methods: {
     ...mapActions({
-      login: 'login'
+      login: "login"
     }),
-    userFocus () {
-      this.idFocus = true
-      this.pswdFocus = false
+    userFocus() {
+      this.idFocus = true;
+      this.pswdFocus = false;
     },
-    userBlur () {
-      this.idFocus = false
+    userBlur() {
+      this.idFocus = false;
     },
-    passwordFocus () {
-      this.idFocus = false
-      this.pswdFocus = true
+    passwordFocus() {
+      this.idFocus = false;
+      this.pswdFocus = true;
     },
-    passwordBlur () {
-      this.pswdFocus = false
+    passwordBlur() {
+      this.pswdFocus = false;
     },
-    async submit () {
-      const { $indicator, $toast, userName, password, $router, login } = this
+    async submit() {
+      const { $indicator, $toast, userName, password, $router, login } = this;
       if (!userName.trim()) {
-        $toast('请输入用户名！', 'bottom', 2000)
+        $toast("请输入用户名！", "bottom", 2000);
       } else if (!password.trim()) {
-        $toast('请输入密码！', 'bottom', 2000)
+        $toast("请输入密码！", "bottom", 2000);
       } else {
-        $indicator.open('正在登录...')
+        $indicator.open("正在登录...");
         const resLogin = await getLogin({
           userName,
           password
-        })
-        $indicator.close()
+        });
+        $indicator.close();
         if (resLogin.data) {
-          $router.push('/main/home')
-          setCookie('userinfo', resLogin.data, 8 * 60 * 60 * 1000)
-          login(resLogin.data)
+          $router.push("/main/home");
+          setCookie("userinfo", resLogin.data, 8 * 60 * 60 * 1000);
+          login(resLogin.data);
         }
       }
     }
   }
-}
+};
 </script>

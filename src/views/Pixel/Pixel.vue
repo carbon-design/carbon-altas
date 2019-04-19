@@ -1,6 +1,6 @@
 <template lang="pug">
   article.page-pixel
-    img(src="~/#/images/human.jpg" ref="pic")
+    img(src="~/~/assets/images/human.jpg" ref="pic")
     .btnGrp
       .btn(@click="reset") 重置
       .btn(@click="invert") 反相
@@ -11,35 +11,34 @@
 </template>
 
 <script>
-import pixel from '~/libs/pixel'
+import pixel from "~/libs/pixel";
 
 export default {
-  name: 'pixel',
-  data () {
-    return {
-    }
+  name: "pixel",
+  data() {
+    return {};
   },
-  async mounted () {
-    const img = this.$refs.pic
-    await pixel.initImage(img)
-    this.canvas = pixel.drawImage(img)
+  async mounted() {
+    const img = this.$refs.pic;
+    await pixel.initImage(img);
+    this.canvas = pixel.drawImage(img);
   },
   methods: {
-    reset () {
-      this.canvas.getContext('2d').drawImage(this.$refs.pic, 0, 0)
+    reset() {
+      this.canvas.getContext("2d").drawImage(this.$refs.pic, 0, 0);
     },
-    invert () {
-      this.reset()
-      pixel.invert(this.canvas)
+    invert() {
+      this.reset();
+      pixel.invert(this.canvas);
     },
-    grayscale () {
-      this.reset()
-      pixel.grayscale(this.canvas)
+    grayscale() {
+      this.reset();
+      pixel.grayscale(this.canvas);
     },
-    colorFilter (color) {
-      this.reset()
-      pixel.colorFilter(this.canvas, color)
+    colorFilter(color) {
+      this.reset();
+      pixel.colorFilter(this.canvas, color);
     }
   }
-}
+};
 </script>

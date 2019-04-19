@@ -67,16 +67,16 @@
 </template>
 
 <script>
-import { getHome } from '~/config/api'
-import { waiter } from '~/utils/tools'
-import { mapGetters } from 'vuex'
-import dynamics from 'dynamics.js'
+import { getHome } from "~/config/api";
+import { waiter } from "~/utils/tools";
+import { mapGetters } from "vuex";
+import dynamics from "dynamics.js";
 
 export default {
-  name: 'home',
-  data () {
+  name: "home",
+  data() {
     return {
-      emoji: '',
+      emoji: "",
       countScan: 0,
       countProfit: 0,
       countCreditQuota: 0,
@@ -88,57 +88,58 @@ export default {
         profit: 0,
         creditQuota: 0
       }
-    }
+    };
   },
   computed: {
     ...mapGetters({
-      route: 'routePath'
+      route: "routePath"
     })
   },
-  async mounted () {
-    this._count = 0
-    this.$page = this.$refs.page
+  async mounted() {
+    this._count = 0;
+    this.$page = this.$refs.page;
 
     // 代理转发接口测试
     // const resCode = await getCode()
     // console.log(resCode.data)
 
-    const resHome = await getHome()
-    const resData = resHome.data
+    const resHome = await getHome();
+    const resData = resHome.data;
     this.$counter({
       numFrom: 0,
       numTo: resData.scan,
       duration: 1200,
       callback: num => {
-        this.countScan = num
+        this.countScan = num;
       }
-    }).start()
+    }).start();
 
     this.$counter({
       numFrom: 0,
       numTo: resData.creditQuota,
       duration: 1200,
       callback: num => {
-        this.countCreditQuota = num
+        this.countCreditQuota = num;
       }
-    }).start()
+    }).start();
 
     this.$counter({
       numFrom: 0,
       numTo: resData.profit,
       duration: 1200,
       callback: num => {
-        this.countProfit = num
+        this.countProfit = num;
       }
-    }).start()
+    }).start();
 
-    this.homeData = resData
-    const use = resData.useQuota
-    const all = resData.quota
-    const surplus = all - use
-    const circleEl = this.$refs.perCircle
-    const size = 1.8 * window.rootFontSize
-    circleEl.style.lineHeight = circleEl.style.height = circleEl.style.width = size + 'px'
+    this.homeData = resData;
+    const use = resData.useQuota;
+    const all = resData.quota;
+    const surplus = all - use;
+    const circleEl = this.$refs.perCircle;
+    const size = 1.8 * window.rootFontSize;
+    circleEl.style.lineHeight = circleEl.style.height = circleEl.style.width =
+      size + "px";
     const vmCircleProgress = this.$circleProgress({
       el: circleEl,
       value: surplus / all,
@@ -148,106 +149,117 @@ export default {
       // fill: {
       //   gradient: ['#2a98ed', '#72ddf8']
       // },
-      fill: '#fff',
-      emptyFill: 'rgba(255, 255, 255, .3)',
-      callback (num) {
-        circleEl.setAttribute('data-surplus', `￥${~~(num * all)}可用`)
+      fill: "#fff",
+      emptyFill: "rgba(255, 255, 255, .3)",
+      callback(num) {
+        circleEl.setAttribute("data-surplus", `￥${~~(num * all)}可用`);
       }
-    })
-    this.vmCircleProgress = vmCircleProgress
-    vmCircleProgress.init()
-    this.jump()
+    });
+    this.vmCircleProgress = vmCircleProgress;
+    vmCircleProgress.init();
+    this.jump();
   },
 
-  beforeDestroy () {
-    this.vmCircleProgress.destroy()
+  beforeDestroy() {
+    this.vmCircleProgress.destroy();
   },
 
   methods: {
-    clearFace () {
-      this.$refs.page.style.display = 'none'
-      this.$refs.page = null
+    clearFace() {
+      this.$refs.page.style.display = "none";
+      this.$refs.page = null;
     },
-    goPage (path) {
-      this.$router.push(`/main/${path}`)
+    goPage(path) {
+      this.$router.push(`/main/${path}`);
     },
-    async jump () {
+    async jump() {
       if (this._count > 4) {
-        return
+        return;
       }
       if (!this.$refs.page) {
-        return
+        return;
       }
-      this._count++
-      const rs = window.rootFontSize
-      const $face = document.createElement('div')
-      $face.className = 'face'
-      this.$page.appendChild($face)
+      this._count++;
+      const rs = window.rootFontSize;
+      const $face = document.createElement("div");
+      $face.className = "face";
+      this.$page.appendChild($face);
 
-      const ry = () => Math.random() * 6.7 * rs
-      const rt = () => Math.random() * 2000 + 1000
+      const ry = () => Math.random() * 6.7 * rs;
+      const rt = () => Math.random() * 2000 + 1000;
 
       const getEmoji = () => {
-        let emoji = ''
-        const emoType = Math.random()
+        let emoji = "";
+        const emoType = Math.random();
         if (emoType > 0 && emoType < 0.33) {
-          emoji = 'a'
+          emoji = "a";
         } else if (emoType >= 0.33 && emoType < 0.66) {
-          emoji = 'b'
+          emoji = "b";
         } else {
-          emoji = 'c'
+          emoji = "c";
         }
         if (this.emoji === emoji) {
-          getEmoji()
-          return
+          getEmoji();
+          return;
         }
-        return emoji
-      }
-      const emj = getEmoji()
-      this.emoji = emj
-      $face.classList.add(emj)
-      const jumpPoz = [{
-        x: ry(),
-        y: 0.3 * rs - ry()
-      }, {
-        x: ry(),
-        y: 0.3 * rs
-      }, {
-        x: ry(),
-        y: 2.9 * rs
-      }, {
-        x: ry(),
-        y: 7.9 * rs
-      }, {
-        x: ry(),
-        y: 10.5 * rs
-      }, {
-        x: ry(),
-        y: document.documentElement.offsetHeight
-      }]
+        return emoji;
+      };
+      const emj = getEmoji();
+      this.emoji = emj;
+      $face.classList.add(emj);
+      const jumpPoz = [
+        {
+          x: ry(),
+          y: 0.3 * rs - ry()
+        },
+        {
+          x: ry(),
+          y: 0.3 * rs
+        },
+        {
+          x: ry(),
+          y: 2.9 * rs
+        },
+        {
+          x: ry(),
+          y: 7.9 * rs
+        },
+        {
+          x: ry(),
+          y: 10.5 * rs
+        },
+        {
+          x: ry(),
+          y: document.documentElement.offsetHeight
+        }
+      ];
       const jumpStep = data => {
-        $face.style.left = data.x + 'px'
-        dynamics.animate($face, {
-          translateY: data.y
-        }, {
-          type: dynamics.gravity,
-          duration: 1000,
-          bounciness: 610,
-          elasticity: 400
-        })
-      }
+        $face.style.left = data.x + "px";
+        dynamics.animate(
+          $face,
+          {
+            translateY: data.y
+          },
+          {
+            type: dynamics.gravity,
+            duration: 1000,
+            bounciness: 610,
+            elasticity: 400
+          }
+        );
+      };
       dynamics.css($face, {
         transform: `translate3d(${jumpPoz[0].x}px, ${jumpPoz[0].y}px, 0)`
-      })
+      });
       for (let i = 1; i < jumpPoz.length; i++) {
-        await waiter(rt())
-        jumpStep(jumpPoz[i])
-        this.jump()
+        await waiter(rt());
+        jumpStep(jumpPoz[i]);
+        this.jump();
       }
-      await waiter(rt())
-      this.$page.removeChild($face)
-      this._count--
+      await waiter(rt());
+      this.$page.removeChild($face);
+      this._count--;
     }
   }
-}
+};
 </script>

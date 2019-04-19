@@ -2,18 +2,18 @@
   async-module
 </template>
 
-<style lang="scss" src="#/styles/pages/home.scss"></style>
+<style lang="scss" src="~/assets/styles/pages/home.scss"></style>
 
 <script>
-import config from '~/config/asyncLoad'
+import config from "~/config/asyncLoad";
 
 export default {
-  name: 'async-home',
+  name: "async-home",
   components: {
     AsyncModule: () => ({
-      component: import('./Home' /* webpackChunkName: 'home' */),
+      component: import("./Home" /* webpackChunkName: 'home' */),
       ...config
     })
   }
-}
+};
 </script>

@@ -1,8 +1,8 @@
 export const waiter = time => {
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     const tempTimer = setTimeout(() => {
-      clearTimeout(tempTimer)
-      resolve()
-    }, time)
-  })
-}
+      clearTimeout(tempTimer);
+      resolve();
+    }, time);
+  });
+};

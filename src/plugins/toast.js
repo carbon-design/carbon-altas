@@ -1,7 +1,7 @@
-import toast from '~/libs/toast'
+import toast from "~/libs/toast";
 
 export default {
-  install (Vue, options) {
-    Object.defineProperty(Vue.prototype, '$toast', { value: toast })
+  install(Vue) {
+    Object.defineProperty(Vue.prototype, "$toast", { value: toast });
   }
-}
+};

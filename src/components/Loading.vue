@@ -3,10 +3,10 @@
     .triangle
 </template>
 
-<style lang="scss" src="#/styles/layouts/loading.scss"></style>
+<style lang="scss" src="~/assets/styles/layouts/loading.scss"></style>
 
 <script>
 export default {
-  name: 'loading'
-}
+  name: "loading"
+};
 </script>

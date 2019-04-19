@@ -1,31 +1,31 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import { getCookie } from '~/utils/cookie'
-import routeMap from './maps'
+import Vue from "vue";
+import Router from "vue-router";
+import { getCookie } from "~/utils/cookie";
+import routeMap from "./maps";
 
-Vue.use(Router)
+Vue.use(Router);
 
 const vueRouter = new Router({
-  mode: 'hash',
+  mode: "hash",
   scrollBehavior: () => ({ y: 0 }),
   routes: routeMap
-})
+});
 
 vueRouter.beforeEach((to, from, next) => {
-  if (to.query.validate === '1') {
-    const userInfo = getCookie('userinfo')
+  if (to.query.validate === "1") {
+    const userInfo = getCookie("userinfo");
     if (userInfo) {
-      next()
+      next();
     } else {
-      next('/login')
+      next("/login");
     }
   } else {
-    next()
+    next();
   }
-})
+});
 
-vueRouter.afterEach((to, from) => {
-  window.scrollTo(0, 0)
-})
+vueRouter.afterEach(() => {
+  window.scrollTo(0, 0);
+});
 
-export default vueRouter
+export default vueRouter;

@@ -1,16 +1,12 @@
 import { Axios } from "~/plugins/requester";
 
-// 测试代理服务接口
-// const rq = name => `/WechatBank/fee/${name}`
-
 export const API = {
-  // queryCode: rq('queryAreaCode'),
-  login: "/starry/mock/login.json",
-  channel: "/starry/mock/channel.json",
-  assets: "/starry/mock/assets.json",
-  home: "/starry/mock/home.json",
-  address: "/starry/mock/address.json",
-  images: "/starry/mock/images.json"
+  login: "/carbon/mock/login.json",
+  channel: "/carbon/mock/channel.json",
+  assets: "/carbon/mock/assets.json",
+  home: "/carbon/mock/home.json",
+  address: "/carbon/mock/address.json",
+  images: "/carbon/mock/images.json"
 };
 
 export const getCode = () =>

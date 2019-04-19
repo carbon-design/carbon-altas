@@ -96,11 +96,11 @@ export default {
       data: res.data,
       // defaultValues: ['360000', '360100', '360121'],
       defaultValues: ["620000", "620200"],
-      onShow(val) {
-        console.log(val);
+      onShow() {
+        // console.log(val);
       },
-      onSelect(vals) {
-        console.log(vals);
+      onSelect() {
+        // console.log(vals);
       },
       onConfirm: vals => {
         this.$toast(vals.map(e => e.name).join("-"), "bottom");
@@ -110,11 +110,11 @@ export default {
     this.singlePoppicker = new Poppicker({
       data: exampleData,
       defaultValues: "003",
-      onShow(val) {
-        console.log(val);
+      onShow() {
+        // console.log(val);
       },
-      onSelect(vals) {
-        console.log(vals);
+      onSelect() {
+        // console.log(vals);
       },
       onConfirm: vals => {
         this.$toast(vals.name, "bottom");

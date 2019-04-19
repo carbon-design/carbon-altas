@@ -1,4 +1,4 @@
-import StackBlur from "stackblur-canvas";
+import * as StackBlur from "stackblur-canvas";
 
 class ImageBlur {
   constructor($image, options) {

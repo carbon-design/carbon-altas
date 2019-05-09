@@ -1,5 +1,6 @@
 const path = require("path");
 const chalk = require("chalk");
+const proxyLog = require("debug")("proxy");
 const resolve = dir => path.join(__dirname, dir);
 
 module.exports = {
@@ -10,14 +11,6 @@ module.exports = {
       alias: {
         "~": resolve("src")
       }
-    },
-    module: {
-      rules: [
-        {
-          test: /\.pug$/,
-          loader: "pug-plain-loader"
-        }
-      ]
     }
   },
   devServer: {
@@ -25,11 +18,9 @@ module.exports = {
       "/media": {
         target: "https://owlaford.gitee.io/",
         changeOrigin: true,
-        onProxyReq: proxyReq => {
-          console.log(
-            `[${chalk.gray("proxy")}]: ` +
-              `${chalk.cyanBright(proxyReq.method)} ` +
-              `${chalk.yellowBright(proxyReq.path)}`
+        onProxyReq: ({ method, path }, req, { statusCode }) => {
+          proxyLog(
+            `${chalk.cyanBright(method)} ${chalk.yellow(statusCode)} ${path}`
           );
         }
       }
